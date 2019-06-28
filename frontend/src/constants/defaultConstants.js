@@ -1,0 +1,5 @@
+export const GET_ERRORS = 'GET_ERRORS';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const REGISTER_INPUTS = 'REGISTER_INPUTS';
+export const LOGIN_INPUTS = 'LOGIN_INPUTS';
+export const CLEAR_INPUTS = 'CLEAR_INPUTS';

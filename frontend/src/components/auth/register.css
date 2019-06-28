@@ -1,0 +1,46 @@
+.registration, .login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333; }
+  .registration .form, .login .form {
+    display: flex;
+    flex-direction: column; }
+    .registration .form .input, .login .form .input {
+      margin-bottom: 15px;
+      width: 360px;
+      height: 36px;
+      font-size: 17px;
+      border-radius: 5px;
+      border: 1px solid #333333;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding: 5px; }
+    .registration .form .submit, .login .form .submit {
+      cursor: pointer;
+      width: 200px;
+      background-color: inherit;
+      border: 2px solid #333;
+      height: 50px;
+      border-radius: 10px;
+      font-size: 20px;
+      align-self: center;
+      -webkit-transition: all .2s;
+      -moz-transition: all .2s;
+      -ms-transition: all .2s;
+      -o-transition: all .2s;
+      transition: all .2s; }
+    .registration .form .submit:hover, .login .form .submit:hover {
+      border: 2px solid #fefefe;
+      color: #fefefe;
+      background-color: #333; }
+  .registration .invalid-feedback, .login .invalid-feedback {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffe8e8;
+    border-radius: 10px;
+    margin-bottom: 15px; }
+
+/*# sourceMappingURL=register.css.map */
