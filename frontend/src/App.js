@@ -13,7 +13,7 @@ import {
 import history from './history';
 
 import NavbarContainer from './containers/header/NavbarContainer'
-import Home from './components/home/Home'
+import HomeContainer from './containers/home/HomeContainer'
 import RegisterContainer from './containers/auth/RegisterContainer'
 import LoginContainer from './containers/auth/LoginContainer'
 
@@ -40,7 +40,7 @@ class App extends Component {
 			<Provider store={store}>
 				<Router history={history}>
 					<NavbarContainer/>
-					<Route exact path="/" component={Home}/>
+					<Route exact path="/" component={HomeContainer}/>
 					<div className="container">
 						<Switch>
 							<Route exact path="/register" component={RegisterContainer}/>

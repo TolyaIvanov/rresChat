@@ -35,16 +35,36 @@ module.exports = {
 				});
 
 				bcrypt.genSalt(10, (err, salt) => {
-					if (err) console.error('There was an error', err);
+					if (err)
+						console.error('There was an error', err);
 					else {
 						bcrypt.hash(newUser.password, salt, (err, hash) => {
-							if (err) console.error('There was an error', err);
+							if (err)
+								console.error('There was an error', err);
 							else {
 								newUser.password = hash;
+
 								newUser
 									.save()
 									.then(user => {
-										res.json(user)
+										const payload = {
+											id: user.id,
+											name: user.name,
+											avatar: user.avatar
+										};
+
+										jwt.sign(payload, 'secret', {
+											expiresIn: 3600
+										}, (err, token) => {
+											if (err) {
+												console.error('There is some error in token', err);
+											} else {
+												res.json({
+													success: true,
+													token: `Bearer ${token}`,
+												});
+											}
+										});
 									});
 							}
 						});
@@ -54,7 +74,6 @@ module.exports = {
 		});
 	},
 	login: (req, res) => {
-
 		const {errors, isValid} = validateLoginInput(req.body);
 
 		if (!isValid) {
@@ -79,6 +98,7 @@ module.exports = {
 								name: user.name,
 								avatar: user.avatar
 							};
+
 							jwt.sign(payload, 'secret', {
 								expiresIn: 3600
 							}, (err, token) => {

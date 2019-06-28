@@ -20,7 +20,16 @@ export const registerUser = (event) => {
 		let user = store.getState().inputsValues;
 
 		axios.post('/api/users/register', user)
-			.then(res => history.push('/login'))
+			.then(res => {
+				const {token} = res.data;
+				const decoded = jwt_decode(token);
+
+				localStorage.setItem('jwtToken', token);
+				setAuthToken(token);
+
+				dispatch(setCurrentUser(decoded));
+			})
+			.then(() => history.push('/'))
 			.catch(err => {
 				dispatch(getErrors(err.response));
 			});
@@ -45,7 +54,6 @@ export const loginUser = (event) => {
 				setAuthToken(token);
 
 				dispatch(setCurrentUser(decoded));
-				// dispatch()
 			})
 			.catch(err => {
 				dispatch(getErrors(err.response));
