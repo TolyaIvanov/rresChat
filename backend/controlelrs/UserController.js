@@ -8,7 +8,6 @@ const gravatar = require('gravatar');
 
 module.exports = {
 	register: (req, res) => {
-
 		const {errors, isValid} = validateRegisterInput(req.body);
 
 		if (!isValid) {
@@ -86,7 +85,7 @@ module.exports = {
 		User.findOne({email})
 			.then(user => {
 				if (!user) {
-					errors.email = 'User not found';
+					errors.login_email = 'User not found';
 
 					return res.status(404).json(errors);
 				}
@@ -112,7 +111,7 @@ module.exports = {
 								}
 							});
 						} else {
-							errors.password = 'Incorrect Password';
+							errors.login_password = 'Incorrect Password';
 
 							return res.status(400).json(errors);
 						}

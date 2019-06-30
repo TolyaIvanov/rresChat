@@ -21,9 +21,17 @@ const UserSchema = new Schema({
 	date: {
 		type: Date,
 		default: Date.now
+	},
+	rooms: [{
+		type: Schema.Types.ObjectId,
+		ref: 'rooms'
+	}],
+	message: {
+		type: Schema.Types.ObjectId,
+		ref: 'messages'
 	}
 });
 
-const User = mongoose.model('users', UserSchema);
+const User = mongoose.model('Users', UserSchema);
 
 module.exports = User;

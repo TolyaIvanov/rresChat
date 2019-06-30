@@ -5,8 +5,6 @@ import {Link, withRouter} from 'react-router-dom';
 
 import Home from './../../components/home/Home';
 
-import ChatContainer from '../chat/ChatContainer'
-
 class HomeContainer extends React.Component {
 	render() {
 		const {isAuthenticated, user} = this.props.auth;
@@ -16,11 +14,29 @@ class HomeContainer extends React.Component {
 			</div>
 		);
 
-		return (
-			<Home
+		const chatInfo = (
+			<div>
+				<p>
+					это превью страница, пользователи и комнаты в навбаре
+				</p>
+				<hr/>
+				<hr/>
+				<hr/>
+				<p>
+					Я знаю, что чат - плох, от аутентификации до его самого, но это же тестовое(хотя это не оправдание),
+					да и хороший чат за
+					неделю не сдалаешь))))
+				</p>
+				<hr/>
+				<p>
+					хотя может и сделаешь, но я бы не смог
+				</p>
+			</div>
+		);
 
-			>
-				{isAuthenticated ? (<ChatContainer/>) : guestInfo}
+		return (
+			<Home>
+				{isAuthenticated ? chatInfo : guestInfo}
 			</Home>
 		);
 	}

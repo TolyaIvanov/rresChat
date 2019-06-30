@@ -10,12 +10,14 @@
   .navbar .auth-links {
     display: flex;
     align-items: center;
-    width: 200px; }
+    width: 400px; }
     .navbar .auth-links .link-list {
       list-style-type: none;
       justify-content: space-around;
       display: flex;
       width: inherit; }
+      .navbar .auth-links .link-list .rooms-link {
+        margin-right: 50px; }
   .navbar a {
     display: flex;
     justify-content: space-around;

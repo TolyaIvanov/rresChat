@@ -11,13 +11,17 @@
 	.auth-links {
 		display: flex;
 		align-items: center;
-		width: 200px;
+		width: 400px;
 
 		.link-list {
 			list-style-type: none;
 			justify-content: space-around;
 			display: flex;
 			width: inherit;
+
+			.rooms-link {
+				margin-right: 50px;
+			}
 		}
 	}
 

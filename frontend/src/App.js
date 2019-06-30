@@ -16,6 +16,8 @@ import NavbarContainer from './containers/header/NavbarContainer'
 import HomeContainer from './containers/home/HomeContainer'
 import RegisterContainer from './containers/auth/RegisterContainer'
 import LoginContainer from './containers/auth/LoginContainer'
+import RoomsContainer from './containers/chat/RoomsContainer'
+import UserListContainer from './containers/chat/UserListContainer'
 
 import './App.css'
 
@@ -40,11 +42,13 @@ class App extends Component {
 			<Provider store={store}>
 				<Router history={history}>
 					<NavbarContainer/>
-					<Route exact path="/" component={HomeContainer}/>
 					<div className="container">
+						<Route exact path="/" component={HomeContainer}/>
 						<Switch>
 							<Route exact path="/register" component={RegisterContainer}/>
 							<Route exact path="/login" component={LoginContainer}/>
+							<Route exact path="/users" component={UserListContainer}/>
+							<Route exact path="/rooms" component={RoomsContainer}/>
 						</Switch>
 					</div>
 				</Router>

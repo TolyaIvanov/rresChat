@@ -20,15 +20,23 @@ class NavbarContainer extends React.Component {
 
 		const authLinks = (
 			<ul className={'link-list'}>
-				<a href="/" onClick={this.onLogout.bind(this)}>
-					<img
-						src={user.avatar}
-						alt={user.name}
-						title={user.name}
-						style={{width: '25px', marginRight: '5px'}}
-					/>
-					Logout
-				</a>
+				<li>
+					<Link to="/users">users</Link>
+				</li>
+				<li className={'rooms-link'}>
+					<Link to="/rooms">rooms</Link>
+				</li>
+				<li>
+					<a href="/" onClick={this.onLogout.bind(this)}>
+						<img
+							src={user.avatar}
+							alt={user.name}
+							title={user.name}
+							style={{width: '25px', marginRight: '5px'}}
+						/>
+						Logout
+					</a>
+				</li>
 			</ul>
 		);
 		const guestLinks = (
